@@ -1,0 +1,2 @@
+module RequiAnswersHelper
+end

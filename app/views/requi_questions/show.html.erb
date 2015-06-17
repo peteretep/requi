@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requisition:</strong>
+  <%= @requi_question.requisition %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @requi_question.question %>
+</p>
+
+<%= link_to 'Edit', edit_requi_question_path(@requi_question) %> |
+<%= link_to 'Back', requi_questions_path %>
