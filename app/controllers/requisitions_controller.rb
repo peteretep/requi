@@ -3,7 +3,7 @@ class RequisitionsController < ApplicationController
 
   # GET /requisitions
   # GET /requisitions.json
-  def index
+  def index    
     @requisitions = Requisition.all
   end
 
@@ -20,7 +20,7 @@ class RequisitionsController < ApplicationController
   # GET /requisitions/1/edit
   def edit
   end
-
+  
   # POST /requisitions
   # POST /requisitions.json
   def create
@@ -28,7 +28,8 @@ class RequisitionsController < ApplicationController
 
     respond_to do |format|
       if @requisition.save
-        format.html { redirect_to @requisition, notice: 'Requisition was successfully created.' }
+        session[:requisition_id] = @requisition.id
+        format.html { redirect_to :requi_questions, notice: 'Requisition was successfully created.' }
         format.json { render :show, status: :created, location: @requisition }
       else
         format.html { render :new }
@@ -69,6 +70,12 @@ class RequisitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def requisition_params
-      params.require(:requisition).permit(:vendor, :purchaser)
+      params.require(:requisition).permit(:vendor, :purchaser, :property_type)
     end
+
+    # TODO: This should be it's own class / model
+    def property_types
+      [:house, :apartment, :farm, :pub]
+    end
+    helper_method :property_types
 end

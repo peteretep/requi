@@ -4,12 +4,13 @@ class RequiQuestionsController < ApplicationController
   # GET /requi_questions
   # GET /requi_questions.json
   def index
-    @requi_questions = RequiQuestion.all
+    @requi_questions = requ.requi_questions
   end
 
   # GET /requi_questions/1
   # GET /requi_questions/1.json
   def show
+    @requi_question = RequiQuestion.where(requsition_id: params[:id])
   end
 
   # GET /requi_questions/new
@@ -62,6 +63,11 @@ class RequiQuestionsController < ApplicationController
   end
 
   private
+
+    def requ
+      Requisition.find(session[:requisition_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_requi_question
       @requi_question = RequiQuestion.find(params[:id])

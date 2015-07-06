@@ -1,6 +1,6 @@
 <h1>Listing requisitions</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Vendor</th>
@@ -14,6 +14,8 @@
       <tr>
         <td><%= requisition.vendor %></td>
         <td><%= requisition.purchaser %></td>
+        <td><%= link_to 'Build Questions' %> </td>
+        <td>Answer Questions </td>
         <td><%= link_to 'Show', requisition %></td>
         <td><%= link_to 'Edit', edit_requisition_path(requisition) %></td>
         <td><%= link_to 'Destroy', requisition, method: :delete, data: { confirm: 'Are you sure?' } %></td>

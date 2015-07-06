@@ -1,25 +1,30 @@
-<%= form_for(@requisition) do |f| %>
-  <% if @requisition.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@requisition.errors.count, "error") %> prohibited this requisition from being saved:</h2>
+<%= bootstrap_form_for(@requisition) do |f| %>
+<% if @requisition.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@requisition.errors.count, "error") %> prohibited this requisition from being saved:</h2>
 
-      <ul>
-      <% @requisition.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @requisition.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="field">
-    <%= f.label :vendor %><br>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <%= f.select :property_type, property_types %> 
+  </div>
+  <div class="col-md-4">
     <%= f.text_field :vendor %>
+    <%= f.label :vendor_solicitor %>
   </div>
-  <div class="field">
-    <%= f.label :purchaser %><br>
+  <div class="col-md-4">
     <%= f.text_field :purchaser %>
+    <%= f.label :purchaser_solicitor %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
+<%= f.submit 'Next' %>
 <% end %>

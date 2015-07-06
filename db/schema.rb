@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617214823) do
+ActiveRecord::Schema.define(version: 20150706184203) do
 
   create_table "questions", force: true do |t|
     t.string   "text"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150617214823) do
     t.string   "purchaser"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "property_type"
   end
 
   create_table "trans_answers", force: true do |t|
