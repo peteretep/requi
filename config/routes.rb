@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :questions
 
   get 'select_questions/:id', to: 'select_questions#index', as: 'select_questions'
+  post 'select_questions/:id', to: 'select_questions#set', as: 'set_questions'
+
  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

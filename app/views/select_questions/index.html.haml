@@ -1,3 +1,10 @@
 Displays a list of questions
 With Checkboxes
 And lets you add them to the requisition you're currently working on.
+
+= bootstrap_form_tag(url: :set_questions) do |f|
+
+  = f.collection_check_boxes 'questions[]', questions, :id, :text
+
+  = f.submit
+
