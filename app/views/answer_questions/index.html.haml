@@ -1,0 +1,16 @@
+= bootstrap_form_tag(url: :answer_questions) do |f|
+
+  %table.table
+    %thead
+      %tr
+        %th Questions
+        %th Answers
+    %tbody
+    - @requisition.questions.each do |q|
+      %tr
+        %td
+          = q.text
+        %td
+          = f.text_area q.id
+
+  =submit_tag
