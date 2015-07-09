@@ -6,10 +6,7 @@ class SelectQuestionsController < ApplicationController
 
   def set
     return if params[:questions].nil?
-    params[:questions].each do |q|
-      question = RequiQuestion.create(requisition_id: params[:id], question_id: q)
-      @requisition.requi_questions << question
-    end
+    @requisition.questions = Question.find(params[:questions])
     @requisition.save
   end
 

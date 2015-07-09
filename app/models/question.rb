@@ -1,3 +1,3 @@
 class Question < ActiveRecord::Base
-  has_many :requi_questions
+  has_many :requisitions, through: :requi_questions
 end
