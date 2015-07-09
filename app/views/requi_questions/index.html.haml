@@ -1,0 +1,17 @@
+%h1 Listing requi_questions
+%table
+  %thead
+    %tr
+      %th Requisition
+      %th Question
+      %th{:colspan => "3"}
+  %tbody
+    - @requi_questions.each do |requi_question|
+      %tr
+        %td= requi_question.requisition
+        %td= requi_question.question
+        %td= link_to 'Show', requi_question
+        %td= link_to 'Edit', edit_requi_question_path(requi_question)
+        %td= link_to 'Destroy', requi_question, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Requi question', new_requi_question_path

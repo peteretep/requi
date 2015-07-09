@@ -1,0 +1,19 @@
+= bootstrap_form_for(@requisition) do |f|
+  - if @requisition.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@requisition.errors.count, "error")
+        prohibited this requisition from being saved:
+      %ul
+        - @requisition.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-md-4
+      = f.select :property_type, property_types
+    .col-md-4
+      = f.text_field :vendor
+      = f.label :vendor_solicitor
+    .col-md-4
+      = f.text_field :purchaser
+      = f.label :purchaser_solicitor
+  = f.submit 'Next'

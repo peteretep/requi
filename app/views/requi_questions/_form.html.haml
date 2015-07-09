@@ -1,0 +1,19 @@
+= form_for(@requi_question) do |f|
+  - if @requi_question.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@requi_question.errors.count, "error")
+        prohibited this requi_question from being saved:
+      %ul
+        - @requi_question.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :requisition_id
+    %br/
+    = f.text_field :requisition_id
+  .field
+    = f.label :question_id
+    %br/
+    = f.text_field :question_id
+  .actions
+    = f.submit
