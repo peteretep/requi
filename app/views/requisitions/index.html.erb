@@ -14,7 +14,7 @@
       <tr>
         <td><%= requisition.vendor %></td>
         <td><%= requisition.purchaser %></td>
-        <td><%= link_to 'Build Questions' %> </td>
+        <td><%= link_to 'Select Questions', select_questions_path(requisition) %> </td>
         <td>Answer Questions </td>
         <td><%= link_to 'Show', requisition %></td>
         <td><%= link_to 'Edit', edit_requisition_path(requisition) %></td>
