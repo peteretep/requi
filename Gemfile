@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap_form'
 gem 'haml-rails'
+gem 'prawn'
+gem 'prawn-table'
 
 group :development, :test do
   gem 'guard'

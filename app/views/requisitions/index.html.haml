@@ -14,6 +14,8 @@
           = link_to 'Select Questions', select_questions_path(requisition)
         %td 
           = link_to 'Answer Questions', answer_questions_path(requisition)
+        %td
+          = link_to 'Download PDF', select_questions_path(requisition, format: :pdf)
         %td= link_to 'Show', requisition
         %td= link_to 'Edit', edit_requisition_path(requisition)
         %td= link_to 'Destroy', requisition, method: :delete, data: { confirm: 'Are you sure?' }

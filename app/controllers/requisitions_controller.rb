@@ -29,7 +29,7 @@ class RequisitionsController < ApplicationController
     respond_to do |format|
       if @requisition.save
         session[:requisition_id] = @requisition.id
-        format.html { redirect_to :requi_questions, notice: 'Requisition was successfully created.' }
+        format.html { render :show, notice: 'Requisition was successfully created.' }
         format.json { render :show, status: :created, location: @requisition }
       else
         format.html { render :new }
