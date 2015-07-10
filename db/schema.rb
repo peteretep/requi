@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150706184203) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "questions", force: true do |t|
     t.string   "text"
     t.datetime "created_at"
@@ -28,9 +31,9 @@ ActiveRecord::Schema.define(version: 20150706184203) do
     t.datetime "updated_at"
   end
 
-  add_index "requi_answers", ["question_id"], name: "index_requi_answers_on_question_id"
-  add_index "requi_answers", ["requi_question_id"], name: "index_requi_answers_on_requi_question_id"
-  add_index "requi_answers", ["requisition_id"], name: "index_requi_answers_on_requisition_id"
+  add_index "requi_answers", ["question_id"], name: "index_requi_answers_on_question_id", using: :btree
+  add_index "requi_answers", ["requi_question_id"], name: "index_requi_answers_on_requi_question_id", using: :btree
+  add_index "requi_answers", ["requisition_id"], name: "index_requi_answers_on_requisition_id", using: :btree
 
   create_table "requi_questions", force: true do |t|
     t.integer  "requisition_id"
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20150706184203) do
     t.datetime "updated_at"
   end
 
-  add_index "requi_questions", ["question_id"], name: "index_requi_questions_on_question_id"
-  add_index "requi_questions", ["requisition_id"], name: "index_requi_questions_on_requisition_id"
+  add_index "requi_questions", ["question_id"], name: "index_requi_questions_on_question_id", using: :btree
+  add_index "requi_questions", ["requisition_id"], name: "index_requi_questions_on_requisition_id", using: :btree
 
   create_table "requisitions", force: true do |t|
     t.string   "vendor"
@@ -48,36 +51,6 @@ ActiveRecord::Schema.define(version: 20150706184203) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "property_type"
-  end
-
-  create_table "trans_answers", force: true do |t|
-    t.integer  "transaction_id"
-    t.integer  "trans_question_id"
-    t.integer  "question_id"
-    t.string   "text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "trans_answers", ["question_id"], name: "index_trans_answers_on_question_id"
-  add_index "trans_answers", ["trans_question_id"], name: "index_trans_answers_on_trans_question_id"
-  add_index "trans_answers", ["transaction_id"], name: "index_trans_answers_on_transaction_id"
-
-  create_table "trans_questions", force: true do |t|
-    t.integer  "transaction_id"
-    t.integer  "question_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "trans_questions", ["question_id"], name: "index_trans_questions_on_question_id"
-  add_index "trans_questions", ["transaction_id"], name: "index_trans_questions_on_transaction_id"
-
-  create_table "transactions", force: true do |t|
-    t.string   "vendor"
-    t.string   "purchaser"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end
