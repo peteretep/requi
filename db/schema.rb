@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150706184203) do
+ActiveRecord::Schema.define(version: 20150711091348) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: true do |t|
+    t.integer  "requisition_id"
+    t.integer  "question_id"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+  add_index "answers", ["requisition_id"], name: "index_answers_on_requisition_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.string   "text"
@@ -24,15 +35,12 @@ ActiveRecord::Schema.define(version: 20150706184203) do
 
   create_table "requi_answers", force: true do |t|
     t.integer  "requisition_id"
-    t.integer  "requi_question_id"
-    t.integer  "question_id"
-    t.string   "text"
+    t.integer  "answer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "requi_answers", ["question_id"], name: "index_requi_answers_on_question_id", using: :btree
-  add_index "requi_answers", ["requi_question_id"], name: "index_requi_answers_on_requi_question_id", using: :btree
+  add_index "requi_answers", ["answer_id"], name: "index_requi_answers_on_answer_id", using: :btree
   add_index "requi_answers", ["requisition_id"], name: "index_requi_answers_on_requisition_id", using: :btree
 
   create_table "requi_questions", force: true do |t|

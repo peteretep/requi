@@ -1,1 +1,10 @@
 List all questions and corresponding answers
+
+%table.table.table-bordered
+  %tbody
+    - @requisition.questions.each do |q|
+      %tr
+        %td
+          = q.text
+        %td
+          = @answers.where(question_id: q.id, requisition_id: @requisition.id).first.text
