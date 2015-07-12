@@ -27,6 +27,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (5.0.1.20140414130214)
     awesome_print (1.6.1)
     better_errors (2.1.1)
@@ -185,6 +188,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    seed_dump (3.2.2)
+      activerecord (~> 4)
+      activesupport (~> 4)
     sexp_processor (4.6.0)
     shellany (0.0.1)
     slop (3.6.0)
@@ -214,6 +220,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   awesome_print
   better_errors
   binding_of_caller
@@ -238,6 +245,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
+  seed_dump
   spring
   turbolinks
   uglifier (>= 1.3.0)
