@@ -1,7 +1,6 @@
 class SelectQuestionsController < ApplicationController
   before_action :set_requisition
   def index
-
     respond_to do |format|
       format.html
       format.pdf do
@@ -9,7 +8,6 @@ class SelectQuestionsController < ApplicationController
         send_data pdf.render, filename: 'requisitions.pdf', type: 'application/pdf'
       end
     end
-
   end
 
   def set

@@ -44,4 +44,5 @@ group :development, :test do
   gem 'railroady'
   gem 'annotate'
   gem 'seed_dump'
+  gem 'rubocop'
 end
