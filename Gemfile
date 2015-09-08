@@ -29,6 +29,8 @@ gem 'haml-rails'
 gem 'prawn'
 gem 'prawn-table'
 
+gem 'breadcrumbs_on_rails'
+
 group :development, :test do
   gem 'guard'
   gem 'spring'

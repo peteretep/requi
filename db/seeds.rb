@@ -14,9 +14,6 @@ Question.create!([
   {text: "Is the property registered under HomeBond, Premier, or alternative policy/scheme."},
   {text: "If so, and if still in force, furnish now guarantee certificate/final notice."}
 ])
-RequiAnswer.create!([
-  {requisition_id: 1, answer_id: 1}
-])
 RequiQuestion.create!([
   {requisition_id: 1, question_id: 1},
   {requisition_id: 1, question_id: 2},
@@ -26,5 +23,5 @@ RequiQuestion.create!([
   {requisition_id: 1, question_id: 6}
 ])
 Requisition.create!([
-  {vendor: "asdf", purchaser: "sdaf", property_type: "house"}
+  {vendor: "Bryan Armstrong", purchaser: "Peter Armstrong", property_type: "house"}
 ])

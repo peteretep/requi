@@ -14,4 +14,8 @@ class Requisition < ActiveRecord::Base
   has_many :requi_questions
   has_many :answers
   has_many :questions, through: :requi_questions
+
+  def questions_selected?
+  	return true if self.questions.count > 0
+  end
 end
